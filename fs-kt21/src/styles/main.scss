@@ -1,0 +1,158 @@
+
+*{
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+}
+
+body {
+  background: #2cb6fc;
+}
+
+.flex {
+  display: flex;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.lighter {
+  opacity: 0.5;
+}
+
+.content{
+  margin: auto;
+  padding-top: 5vh;
+}
+
+.loader {
+  @extend .center;
+  height: 100vh;
+}
+
+.top {
+  @extend .center;
+  width: 100vw;
+  height: 2vw;
+  opacity: 0.7;
+  z-index: 1;
+  position: fixed;
+  background-color: rgb(255, 255, 255);
+
+  img{
+    height: 2vw;
+  }
+}
+
+.arrows{
+  @extend .flex;
+  margin: 3vh 0;
+  justify-content: space-between;
+
+  p{
+    cursor: pointer;
+    font-size: 3vh;
+  }
+
+  .right{
+  &:hover {
+    animation:  right 1s infinite linear;
+  }
+  @keyframes right {
+    0% { -webkit-transform: translateX( -5px) ; }
+    100% { -webkit-transform: translateX(15px);  }
+    } 
+  }
+
+  .left {
+  &:hover {
+    animation:  left 1s infinite linear;
+  }
+  @keyframes left {
+    0% { -webkit-transform: translateX( 5px) ; }
+    100% { -webkit-transform: translateX(-15px);  }
+    } 
+  }
+
+}
+
+.side{
+  @extend .center;
+  width:25vw;
+  height: 100vh;
+  position: fixed;
+  align-items: flex-end;
+  background: #2cb6fc;
+
+  .icon {
+    width: 2vw;
+    margin:5vh 3vw;
+    cursor: pointer;
+    mix-blend-mode: darken;
+
+    &:hover{
+    animation: pulse 1s infinite linear;
+    @keyframes pulse {
+      100% {
+        animation-timing-function: ease-in;
+      }
+      50% {
+        transform: scale(1.33);
+      }
+    }
+  }
+  }
+}
+
+.post-cont {
+  margin: 30px;
+  width: 40vw;
+  padding: 2vw;
+  border-radius: 10px;
+  background: rgba(255, 255, 255,0.3);
+
+  .social-logo {
+    width: 3vw;
+    border-radius: 50%;
+    margin-right:1vw;
+    align-self: baseline;
+  }
+
+  .p-media{
+    width: 35vw;
+    margin-top: 1vh;
+  }
+
+  .p-fromNow {
+    opacity: 0.5;
+    float: right;
+    font-style: italic;
+  }
+
+  .p-date {
+    @extend .lighter;
+    font-size: 1.5vh;
+    margin-bottom: 2vh;
+    }
+
+  .p-metric-cont{
+    display: flex;
+    margin: 2vh 0;
+    opacity: 0.5;
+    padding-top:1vw;
+    border-top: 1px solid grey;
+    justify-content: space-around;
+    font-size: 1.6vh;
+    .p-metric{
+    display: flex;
+    }
+
+    .p-icon{
+      width: 2.5vh;
+      margin-right: 5px;
+    }
+    }
+}
